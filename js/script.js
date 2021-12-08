@@ -1,3 +1,4 @@
+/*
 //primo giorno: fare la parte grafica
 //secondo giorno: fare la parte javascript
 const play = document.querySelector('.play');
@@ -31,3 +32,42 @@ function changelvl(lvl, numCells) {
     console.log(numCells);
     return numCells;
 }
+RESTART
+*/
+
+const play = document.getElementById('play');
+const containerGrid = document.getElementById('container');
+play.addEventListener('click', function () {
+    container.innerHTML = '';
+
+    const value = document.getElementById('difficulty').value;
+
+    let col = 0;
+    let row = 0;
+
+    if (value == 'easy') {
+        row = 10;
+        col = 10;
+    }
+    else if (value == 'normal') {
+        row = 9;
+        col = 9;
+    }
+    else if (value == 'hard') {
+        row = 7;
+        col = 7;
+    }
+
+    let numberSquare = row * col;
+    for (let i = 0; i < numberSquare; i++) {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.style.width = `calc(100% / ${col})`;
+        square.style.height = `calc(100% / ${row})`;
+        square.append(i + 1);
+        containerGrid.append(square);
+        square.addEventListener('click', function () {
+            this.classList.add('clicked');
+        })
+    }
+})
