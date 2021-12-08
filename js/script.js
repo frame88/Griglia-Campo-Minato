@@ -40,34 +40,21 @@ const containerGrid = document.getElementById('container');
 play.addEventListener('click', function () {
     container.innerHTML = '';
 
-    const value = document.getElementById('difficulty').value;
+    const value = document.getElementById('level').value;
 
     let col = 0;
     let row = 0;
 
-    if (value == 'easy') {
+    if (value == 'padawan') {
         row = 10;
         col = 10;
     }
-    else if (value == 'normal') {
+    else if (value == 'jedi') {
         row = 9;
         col = 9;
     }
-    else if (value == 'hard') {
+    else if (value == 'masterjedi') {
         row = 7;
         col = 7;
     }
 
-    let numberSquare = row * col;
-    for (let i = 0; i < numberSquare; i++) {
-        const square = document.createElement('div');
-        square.classList.add('square');
-        square.style.width = `calc(100% / ${col})`;
-        square.style.height = `calc(100% / ${row})`;
-        square.append(i + 1);
-        containerGrid.append(square);
-        square.addEventListener('click', function () {
-            this.classList.add('clicked');
-        })
-    }
-})
