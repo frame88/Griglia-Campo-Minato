@@ -58,3 +58,16 @@ play.addEventListener('click', function () {
         col = 7;
     }
 
+    let numberSquare = row * col;
+    for (let i = 0; i < numberSquare; i++) {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.style.width = `calc(100% / ${col})`;
+        square.style.height = `calc(100% / ${row})`;
+        square.append(i + 1);
+        containerGrid.append(square);
+        square.addEventListener('click', function () {
+            this.classList.add('clicked');
+        })
+    }
+})
