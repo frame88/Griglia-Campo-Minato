@@ -20,13 +20,13 @@ select.addEventListener('change', function(){
 
 function changelvl(lvl, numCells) {
     if (lvl == 1) {
-        numCells = 49;
+        numCells = 100;
     }
     else if (lvl == 2) {
         numCells = 81;
     }
     else {
-        numCells == 100;
+        numCells = 49;
     }
     console.log(numCells);
     return numCells;
